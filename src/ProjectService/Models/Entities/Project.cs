@@ -11,4 +11,5 @@ public class Project
     public CompensationEnum Compensation { get; set; }
     public string Description { get; set; }
     public string ContactEmail { get; set; }
+    public List<MajorEnum> Majors { get; set; }
 }

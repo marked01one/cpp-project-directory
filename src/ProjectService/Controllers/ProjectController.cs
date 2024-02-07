@@ -9,7 +9,7 @@ using ProjectService.Models.Entities;
 namespace ProjectService.Controllers;
 
 [ApiController]
-[Route("api/project")]
+[Route("api/projects")]
 public class ProjectController : ControllerBase
 {
     private readonly ProjectDbContext _context;

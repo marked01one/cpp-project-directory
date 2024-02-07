@@ -22,7 +22,7 @@ export default function RootLayout({
       <body>
         <Navbar></Navbar>
         
-        <div className='container mx-auto px-5 pt-10'>
+        <div className='container mx-auto px-24 pt-10'>
           {children}
         </div>
 

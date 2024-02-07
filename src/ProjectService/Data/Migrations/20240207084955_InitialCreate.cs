@@ -20,7 +20,8 @@ namespace ProjectService.Data.Migrations
                     Organization = table.Column<string>(type: "text", nullable: true),
                     Compensation = table.Column<int>(type: "integer", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    ContactEmail = table.Column<string>(type: "text", nullable: true)
+                    ContactEmail = table.Column<string>(type: "text", nullable: true),
+                    Majors = table.Column<int[]>(type: "integer[]", nullable: true)
                 },
                 constraints: table =>
                 {

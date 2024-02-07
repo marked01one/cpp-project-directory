@@ -12,8 +12,8 @@ using ProjectService.Data;
 namespace ProjectService.Data.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    [Migration("20240203062733_TableSchema")]
-    partial class TableSchema
+    [Migration("20240207084955_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,6 +39,9 @@ namespace ProjectService.Data.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
+
+                    b.Property<int[]>("Majors")
+                        .HasColumnType("integer[]");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");

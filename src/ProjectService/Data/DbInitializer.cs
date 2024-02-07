@@ -25,16 +25,20 @@ public class DbInitializer
             return;
         }
 
-        List<Project> items = new List<Project>()
+        List<Project> items = new()
         {
             new()
             {
                 Id = Guid.NewGuid(),
-                Name = "Ground Control System - Database Team",
+                Name = "Ground Controls System Software",
                 Organization = "Northrop Grumman Collaboration Project",
                 Compensation = CompensationEnum.Volunteer,
                 Description = "We welcome all aspiring software engineers to join us to build a database for handling messages between vehicles",
-                ContactEmail = "gcs@example.com"
+                ContactEmail = "gcs@example.com",
+                Majors = new List<MajorEnum>() {
+                    MajorEnum.CS,
+                    MajorEnum.CpE
+                }
             },
             new()
             {
@@ -43,25 +47,55 @@ public class DbInitializer
                 Organization = "Bronco Direct Me",
                 Compensation = CompensationEnum.Volunteer,
                 Description = "We welcome all aspiring software engineers to join us to build a tool for improving the registration process",
-                ContactEmail = "bdm@example.com"
+                ContactEmail = "bdm@example.com",
+                Majors = new List<MajorEnum>() {
+                    MajorEnum.CS
+                }
             },
             new()
             {
                 Id = Guid.NewGuid(),
                 Name = "SCALES",
                 Organization = "Bronco Space",
-                Compensation = CompensationEnum.HourlyPay,
+                Compensation = CompensationEnum.Hourly,
                 Description = "The Bronco Space ICON lab is currently searching for up to five students to participate in a paid part time internship in collaboration with the Small Scale Flight Software team at NASA JPL ",
-                ContactEmail = "broncospace@example.com"
+                ContactEmail = "broncospace@example.com",
+                Majors = new List<MajorEnum>() {
+                    MajorEnum.CS,
+                    MajorEnum.CpE,
+                    MajorEnum.EE,
+                    MajorEnum.ARO
+                }
             },
             new()
             {
                 Id = Guid.NewGuid(),
                 Name = "NLP for Drone Guidance w/ Dr. Mohamed El-Hadedy",
                 Organization = "Research for Inclusive Opportunites",
-                Compensation = CompensationEnum.SemesterPay,
+                Compensation = CompensationEnum.Semesterly,
                 Description = "Description goes here!",
-                ContactEmail = "broncospace@example.com"
+                ContactEmail = "broncospace@example.com",
+                Majors = new List<MajorEnum>() {
+                    MajorEnum.CpE,
+                    MajorEnum.EE,
+                    MajorEnum.ARO
+                }
+            },
+            new()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Multi Role Aircraft UAV",
+                Organization = "Northrop Grumman Collaboration Project",
+                Compensation = CompensationEnum.Volunteer,
+                Description = "We welcome all aspiring software engineers to join us to build a database for handling messages between vehicles",
+                ContactEmail = "gcs@example.com",
+                Majors = new List<MajorEnum>() {
+                    MajorEnum.CS,
+                    MajorEnum.CpE,
+                    MajorEnum.EE,
+                    MajorEnum.ME,
+                    MajorEnum.ARO
+                }
             },
 
         };

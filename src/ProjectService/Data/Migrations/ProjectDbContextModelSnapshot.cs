@@ -37,6 +37,9 @@ namespace ProjectService.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
+                    b.Property<int[]>("Majors")
+                        .HasColumnType("integer[]");
+
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
