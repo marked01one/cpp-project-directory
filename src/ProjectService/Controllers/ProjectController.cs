@@ -29,4 +29,10 @@ public class ProjectController : ControllerBase
         // Return a list mapped to `ProjectDto`
         return await query.ProjectTo<ProjectDto>(_mapper.ConfigurationProvider).ToListAsync();
     }
+
+    [HttpGet("/majors")]
+    public string[] GetAllMajors()
+    {
+        return Enum.GetNames(typeof(MajorEnum));
+    }
 }

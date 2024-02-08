@@ -19,10 +19,10 @@ export default function RootLayout({
     <html lang="en">
       
       
-      <body>
+      <body className='dark:bg-slate-700'>
         <Navbar></Navbar>
         
-        <div className='container mx-auto px-24 pt-10'>
+        <div className='container mx-auto xl:px-24 pt-10 '>
           {children}
         </div>
 
