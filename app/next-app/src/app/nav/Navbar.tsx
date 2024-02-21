@@ -16,9 +16,9 @@ export default function Navbar() {
         </div>
         <div className='flex w-[50%] items-center border-2 rounded-full py-2 shadow-sm'>
             <input 
-            type="text"
-            placeholder='Search for projects...'
-            className='flex-grow pl-5 bg-transparent border-transparent focus:outline-none focus:ring-0 text-md text-white' />
+              type="text"
+              placeholder='Search for projects...'
+              className='flex-grow pt-1 pl-5 bg-transparent border-transparent focus:outline-none focus:ring-0 text-md text-white' />
         </div>
     </header>
   )

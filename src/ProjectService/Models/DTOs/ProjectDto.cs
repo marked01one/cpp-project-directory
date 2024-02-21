@@ -7,6 +7,6 @@ public class ProjectDto
     public string Organization { get; set; }
     public string Compensation { get; set; }
     public string Description { get; set; }
-    public string ContactEmail { get; set; }
     public List<string> Majors { get; set; }
+    public ContactsDto Contacts { get; set; }
 }

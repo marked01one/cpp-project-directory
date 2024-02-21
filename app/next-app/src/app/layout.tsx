@@ -17,15 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-      
       <body className='dark:bg-slate-700'>
         <Navbar></Navbar>
-        
         <div className='container mx-auto xl:px-24 pt-10 '>
           {children}
         </div>
-
       </body>
     </html>
   );

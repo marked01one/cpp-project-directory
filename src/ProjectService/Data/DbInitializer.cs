@@ -34,7 +34,10 @@ public class DbInitializer
                 Organization = "Northrop Grumman Collaboration Project",
                 Compensation = CompensationEnum.Volunteer,
                 Description = "We welcome all aspiring software engineers to join us to build a database for handling messages between vehicles",
-                ContactEmail = "gcs@example.com",
+                ContactsEmail = "sample.gcs@ngcp.test.com",
+                ContactsDiscord = "TesterUser",
+                ContactsPhone = "909-869-0000"
+                ,
                 Majors = new List<MajorEnum>() {
                     MajorEnum.CS,
                     MajorEnum.CpE
@@ -47,7 +50,9 @@ public class DbInitializer
                 Organization = "Bronco Direct Me",
                 Compensation = CompensationEnum.Volunteer,
                 Description = "We welcome all aspiring software engineers to join us to build a tool for improving the registration process",
-                ContactEmail = "bdm@example.com",
+                ContactsEmail = "bdm-test@example.com",
+                ContactsDiscord = "BroncoD1r3ctM3"
+                ,
                 Majors = new List<MajorEnum>() {
                     MajorEnum.CS
                 }
@@ -59,7 +64,7 @@ public class DbInitializer
                 Organization = "Bronco Space",
                 Compensation = CompensationEnum.Hourly,
                 Description = "The Bronco Space ICON lab is currently searching for up to five students to participate in a paid part time internship in collaboration with the Small Scale Flight Software team at NASA JPL ",
-                ContactEmail = "broncospace@example.com",
+                ContactsEmail = "broncospace@example.com",
                 Majors = new List<MajorEnum>() {
                     MajorEnum.CS,
                     MajorEnum.CpE,
@@ -74,7 +79,10 @@ public class DbInitializer
                 Organization = "Research for Inclusive Opportunites",
                 Compensation = CompensationEnum.Semesterly,
                 Description = "Description goes here!",
-                ContactEmail = "broncospace@example.com",
+                ContactsEmail = "sample.nlp@test.com",
+                ContactsDiscord = "TesterUser",
+                ContactsPhone = "909-869-0000"
+                ,
                 Majors = new List<MajorEnum>() {
                     MajorEnum.CpE,
                     MajorEnum.EE,
@@ -88,7 +96,9 @@ public class DbInitializer
                 Organization = "Northrop Grumman Collaboration Project",
                 Compensation = CompensationEnum.Volunteer,
                 Description = "We welcome all aspiring software engineers to join us to build a database for handling messages between vehicles",
-                ContactEmail = "gcs@example.com",
+                ContactsEmail = "sample.uav@ngcp.test.com",
+                ContactsDiscord = "TesterUser",
+                ContactsPhone = "909-869-0000",
                 Majors = new List<MajorEnum>() {
                     MajorEnum.CS,
                     MajorEnum.CpE,

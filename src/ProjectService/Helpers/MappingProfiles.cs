@@ -12,6 +12,14 @@ public class MappingProfiles : Profile
             .ForMember(
                 dest => dest.Majors,
                 opt => opt.MapFrom(src => MajorsToString(src.Majors))
+            )
+            .ForMember(
+                dest => dest.Contacts,
+                opt => opt.MapFrom(src => new ContactsDto(){
+                    Email = src.ContactsEmail,
+                    Discord = src.ContactsDiscord,
+                    Phone = src.ContactsPhone
+                })
             );
     }
 

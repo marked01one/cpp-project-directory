@@ -25,9 +25,28 @@ public class ProjectController : ControllerBase
     public async Task<ActionResult<List<ProjectDto>>> GetAllProjects()
     {
         // Get the query organized by organizations
-        IQueryable<Project> query = _context.Projects.OrderBy(x => x.Organization).AsQueryable();
+        IQueryable<Project> query = _context.Projects
+            .OrderBy(x => x.Organization)
+            .AsQueryable();
         // Return a list mapped to `ProjectDto`
-        return await query.ProjectTo<ProjectDto>(_mapper.ConfigurationProvider).ToListAsync();
+        List<ProjectDto> response = await query
+            .ProjectTo<ProjectDto>(_mapper.ConfigurationProvider)
+            .ToListAsync();
+        
+        return Ok(response);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ProjectDto>> GetProjectById(Guid id)
+    {
+        Project project = await _context.Projects
+            .FirstOrDefaultAsync(x => x.Id == id);
+        // Return a 404 if no project with given ID is found
+        if (project == null) return NotFound($"Project with given ID not found! {id}");
+
+        ProjectDto response = _mapper.Map<ProjectDto>(project);
+
+        return Ok(response);
     }
 
     [HttpGet("/majors")]
@@ -35,4 +54,14 @@ public class ProjectController : ControllerBase
     {
         return Enum.GetNames(typeof(MajorEnum));
     }
+
+    // [HttpPost]
+
+
+    // [HttpPut]
+
+
+    // [HttpDelete]
+
+
 }

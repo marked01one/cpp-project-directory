@@ -1,5 +1,7 @@
 import React from 'react'
 import { Card } from 'flowbite-react'
+import CardMajor from '../components/CardMajor';
+import CardCompensation from '../components/CardCompensation';
 
 type Props = {
   name: string,
@@ -10,6 +12,26 @@ type Props = {
 }
 
 export default function ProjectCard({name, desc, org, majors, comp}: Props) {
+  const majorsEnd = majors.length - 1;
+
+  function cleanMajors(major: string): React.JSX.Element {
+    if (majorsEnd == 0) 
+      return <>🎓 <p className='hover:underline hover:font-semibold inline'>{major}</p></>
+
+
+    if (majors.indexOf(major) == majorsEnd) {
+      return <p className='hover:underline hover:font-semibold inline'>{major}</p>
+    }
+    else if (majors.indexOf(major) == 0) {
+      return <>🎓&nbsp;&nbsp;<p className='hover:underline hover:font-semibold inline'>{major}</p>,&nbsp;</>
+    }
+    else {
+      return (
+        <><p className='hover:underline hover:font-semibold inline'>{major}</p>,&nbsp;</>
+      )
+    }
+  }
+  
   return (
     <Card href="#" className='max-w-6xl my-2'>
       <div className='grid grid-cols-4 gap-2'>
@@ -25,17 +47,14 @@ export default function ProjectCard({name, desc, org, majors, comp}: Props) {
           </p>
           
           <div>
-            {comp != "Volunteer" ? 
-              <span className='font-semibold text-green-500'>💵 Paid {comp.toLowerCase()}</span> : 
-              <span className='text-yellow-500'>🙋 Volunteer</span>  
-            }
+            <CardCompensation compensation={comp} />
           </div>
         </div>
           
           
         <div>
-          <div className='text-md text-right font-normal text-gray-600 dark:text-gray-200'>
-            🎓 {majors.toString().replaceAll(',', ', ')} 
+          <div className='text-sm text-right font-normal text-gray-600 dark:text-gray-200 flex flex-wrap'>
+             {majors.map(m => <CardMajor majors={majors} maj={m} />)} 
           </div>
         </div>
       </div>

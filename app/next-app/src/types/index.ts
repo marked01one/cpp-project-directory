@@ -4,5 +4,12 @@ export type Project = {
   organization: string,
   compensation: string,
   description: string,
-  majors: string[]
+  majors: string[],
+  contacts: Contacts
+}
+
+type Contacts = {
+  email: string,
+  discord: string,
+  phone: string
 }
