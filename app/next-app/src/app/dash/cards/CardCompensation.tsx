@@ -1,9 +1,9 @@
 import React from 'react'
-import { FaMoneyBill } from 'react-icons/fa'
+import { FaMoneyBill } from 'react-icons/fa6'
 import { HiHandRaised } from 'react-icons/hi2' 
 
 type Props = {
-    compensation: string
+  compensation: string
 }
 
 export default function CardCompensation({compensation}: Props) {

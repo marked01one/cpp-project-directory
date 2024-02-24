@@ -1,26 +1,21 @@
 import React from 'react'
 import ProjectCard from '@/app/dash/ProjectCard'
 import { getProjects } from '@/services/projectServices'
-import ProjectOptions from './ProjectOptions'
+import ProjectOptions from './ProjectFilters'
+import ProjectFilters from './ProjectFilters'
 
 
 
 export default async function Dashboard() {
   const data = await getProjects()
   return (
-      <div className='grid grid-cols-4 gap-4'>
+      <div className='lg:grid grid-cols-4 gap-4'>
         <nav>
-          <ProjectOptions />
+          <ProjectFilters />
         </nav>
         <article className='col-span-3'>
-          {data.map(obj => { 
-            return <ProjectCard 
-              name={obj.name}
-              org={obj.organization}
-              desc={obj.description}
-              majors={obj.majors}
-              comp={obj.compensation}
-              key={obj.id} />
+          {data.map(proj => { 
+            return <ProjectCard proj={proj} key={proj.id}  />
           })}
         </article>
       </div>

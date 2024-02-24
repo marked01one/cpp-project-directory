@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaGraduationCap } from 'react-icons/fa'
+import { FaGraduationCap } from 'react-icons/fa6'
 
 type Props = {
   majors: string[],
@@ -15,10 +15,10 @@ export default function CardMajor({majors, maj}: Props) {
   if (majors.length == 1)
     return (
       <>
-        <FaGraduationCap style={iconStyles} size={16} />&nbsp;
+        <FaGraduationCap style={iconStyles} size={16} />
         <span className='
           hover:underline hover:font-semibold'>
-          {majors[0]}
+          {maj}
         </span>
       </>
     );
@@ -29,7 +29,7 @@ export default function CardMajor({majors, maj}: Props) {
     case 0:
       return (
         <>
-          <FaGraduationCap style={iconStyles} size={16} />&nbsp;
+          <FaGraduationCap style={iconStyles} size={16} />
           <span className='
             hover:underline hover:font-semibold'>
             {maj}

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <header className='sticky top-0 z-50 flex justify-between bg-white dark:bg-slate-800 py-5 px-10 items-center text-gray-800 dark:text-gray-100 shadow-md '>
+    <header className='sticky top-0 z-50 flex justify-between bg-white dark:bg-slate-800 py-5 px-10 items-center text-gray-800 dark:text-gray-100 shadow-md overflow-hidden'>
         <div className='flex'>
           <span className='2xl:text-3xl md:text-2xl text-center font-bold dark:text-gray-100'>Project Directory&nbsp;</span>
           <span className='2xl:mt-2 md:mt-1.5'>

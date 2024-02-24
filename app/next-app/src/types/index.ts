@@ -8,7 +8,7 @@ export type Project = {
   contacts: Contacts
 }
 
-type Contacts = {
+export type Contacts = {
   email: string,
   discord: string,
   phone: string

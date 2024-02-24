@@ -6,4 +6,5 @@ export async function getProjects(): Promise<Project[]> {
     if (!res.ok) throw Error("Failed to fetch projects!");
   
     return res.json();
+    
   }
