@@ -9,7 +9,7 @@ import ProjectFilters from './ProjectFilters'
 export default async function Dashboard() {
   const data = await getProjects()
   return (
-      <div className='lg:grid grid-cols-4 gap-4'>
+      <div className='lg:grid grid-cols-4'>
         <nav>
           <ProjectFilters />
         </nav>
