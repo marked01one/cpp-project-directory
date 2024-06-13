@@ -4,9 +4,26 @@ public class ProjectDto
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public string Organization { get; set; }
-    public string Compensation { get; set; }
     public string Description { get; set; }
-    public List<string> Majors { get; set; }
-    public ContactsDto Contacts { get; set; }
+    public string Organization { get; set; }
+    public string CompensationType { get; set; }
+    public bool IsPaid { get; set;}
+    public double? Wage { get; set; }
+    public List<ProjectMajorDto> Majors { get; set; }
+    public string ContactsEmail { get; set; }
+    #nullable enable
+    public string? ContactsPhone { get; set; }
+    public string? ContactsDiscord { get; set; }
+    #nullable disable
+}
+
+public class ProjectMajorDto
+{
+    public string Name { get; set; }
+    public string Acronym { get; set; }
+}
+
+public class ProjectOrganizationDto
+{
+    public string Name { get; set; }
 }

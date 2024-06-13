@@ -21,7 +21,7 @@ public class Project
 
     public Project()
     {
-        IsPaid = CompensationType == CompensationTypeEnum.Volunteer;
+        IsPaid = CompensationType != CompensationTypeEnum.Volunteer;
     }
 
 }

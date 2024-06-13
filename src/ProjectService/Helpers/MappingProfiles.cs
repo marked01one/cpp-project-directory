@@ -9,14 +9,8 @@ public class MappingProfiles : Profile
 {
     public MappingProfiles()
     {
-        CreateMap<Project, ProjectDto>()
-            .ForMember(
-                dest => dest.Contacts,
-                opt => opt.MapFrom(src => new ContactsDto(){
-                    Email = src.ContactsEmail,
-                    Discord = src.ContactsDiscord,
-                    Phone = src.ContactsPhone
-                })
-            );
+        CreateMap<Project, ProjectDto>();
+        CreateMap<Major, ProjectMajorDto>();
+        CreateMap<Organization, ProjectOrganizationDto>();
     }
 }
