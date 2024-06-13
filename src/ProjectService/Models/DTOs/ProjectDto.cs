@@ -5,7 +5,7 @@ public class ProjectDto
     public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
-    public string Organization { get; set; }
+    public Organization Organization { get; set; }
     public string CompensationType { get; set; }
     public bool IsPaid { get; set;}
     public double? Wage { get; set; }
