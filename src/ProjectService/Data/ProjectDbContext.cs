@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ProjectService.Models.Entities;
+using ProjectService.Models;
 
 namespace ProjectService.Data;
 
@@ -11,8 +11,19 @@ public class ProjectDbContext : DbContext
 
     public DbSet<Project> Projects { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<Project>()
+            .HasMany(p => p.Majors)
+            .WithMany(m => m.Projects)
+            .UsingEntity<ProjectMajor>();
+
+        modelBuilder.Entity<Organization>()
+            .HasMany(p => p.Projects)
+            .WithOne(p => p.Organization)
+            .HasForeignKey(p => p.OrganizationId)
+            .IsRequired();
     }
 }

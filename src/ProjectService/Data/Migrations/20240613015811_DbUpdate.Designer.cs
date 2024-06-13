@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ProjectService.Data;
@@ -11,9 +12,11 @@ using ProjectService.Data;
 namespace ProjectService.Data.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240613015811_DbUpdate")]
+    partial class DbUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,6 +40,21 @@ namespace ProjectService.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Major");
+                });
+
+            modelBuilder.Entity("MajorProject", b =>
+                {
+                    b.Property<Guid>("MajorsId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProjectsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("MajorsId", "ProjectsId");
+
+                    b.HasIndex("ProjectsId");
+
+                    b.ToTable("MajorProject");
                 });
 
             modelBuilder.Entity("Organization", b =>
@@ -90,19 +108,19 @@ namespace ProjectService.Data.Migrations
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("ProjectMajor", b =>
+            modelBuilder.Entity("MajorProject", b =>
                 {
-                    b.Property<Guid>("MajorId")
-                        .HasColumnType("uuid");
+                    b.HasOne("Major", null)
+                        .WithMany()
+                        .HasForeignKey("MajorsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<Guid>("ProjectId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("MajorId", "ProjectId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("ProjectMajor");
+                    b.HasOne("Project", null)
+                        .WithMany()
+                        .HasForeignKey("ProjectsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Project", b =>
@@ -114,21 +132,6 @@ namespace ProjectService.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Organization");
-                });
-
-            modelBuilder.Entity("ProjectMajor", b =>
-                {
-                    b.HasOne("Major", null)
-                        .WithMany()
-                        .HasForeignKey("MajorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Project", null)
-                        .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Organization", b =>

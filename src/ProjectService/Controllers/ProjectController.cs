@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectService.Data;
 using ProjectService.Models.DTOs;
-using ProjectService.Models.Entities;
+using ProjectService.Models;
 
 namespace ProjectService.Controllers;
 
@@ -26,7 +26,7 @@ public class ProjectController : ControllerBase
     {
         // Get the query organized by organizations
         IQueryable<Project> query = _context.Projects
-            .OrderBy(x => x.Organization)
+            .OrderBy(x => x.Name)
             .AsQueryable();
         // Return a list mapped to `ProjectDto`
         List<ProjectDto> response = await query
@@ -49,11 +49,11 @@ public class ProjectController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("/majors")]
-    public string[] GetAllMajors()
-    {
-        return Enum.GetNames(typeof(MajorEnum));
-    }
+    // [HttpGet("/majors")]
+    // public string[] GetAllMajors()
+    // {
+    //     IQueryable<Major> query = _context;
+    // }
 
     // [HttpPost]
 
