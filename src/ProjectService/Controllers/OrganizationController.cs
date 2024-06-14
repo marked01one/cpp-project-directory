@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjectService.Data;
 
 namespace ProjectService.Controllers;
@@ -19,5 +16,16 @@ public class OrganizationController : ControllerBase
     {
         _context = context;
         _mapper = mapper;
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<OrganizationDto>> GetOrganizationById(Guid id)
+    {
+        Organization org = await _context.Organizations
+            .FirstOrDefaultAsync(org => org.Id == id);
+        
+        OrganizationDto response = _mapper.Map<OrganizationDto>(org);
+
+        return Ok(response);
     }
 }

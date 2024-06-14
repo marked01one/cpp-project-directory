@@ -10,7 +10,9 @@ public class MappingProfiles : Profile
     public MappingProfiles()
     {
         CreateMap<Project, ProjectDto>();
+        CreateMap<Project, OrganizationProjectDto>();
         CreateMap<Major, ProjectMajorDto>();
+        CreateMap<Organization, OrganizationDto>();
         CreateMap<Organization, ProjectOrganizationDto>();
     }
 }

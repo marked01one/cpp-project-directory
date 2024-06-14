@@ -25,5 +25,6 @@ public class ProjectMajorDto
 
 public class ProjectOrganizationDto
 {
+    public Guid Id { get; set; }
     public string Name { get; set; }
 }

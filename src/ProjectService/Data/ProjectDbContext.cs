@@ -10,6 +10,7 @@ public class ProjectDbContext : DbContext
     }
 
     public DbSet<Project> Projects { get; set; }
+    public DbSet<Organization> Organizations { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
