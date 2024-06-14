@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 public class Project
 {
     public Guid Id { get; set; }
     public Guid OrganizationId { get; set; }
+    [JsonIgnore]
     public Organization Organization { get; set; } = null!;
     public List<Major> Majors { get; } = [];
     public string Name { get; set; }

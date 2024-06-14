@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectService.Data;
 using ProjectService.Models.DTOs;
-using ProjectService.Models;
-using System.Linq;
 
 namespace ProjectService.Controllers;
 

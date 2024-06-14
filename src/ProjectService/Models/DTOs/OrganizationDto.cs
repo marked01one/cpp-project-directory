@@ -1,3 +1,5 @@
+namespace ProjectService.Models.DTOs;
+
 public class OrganizationDto
 {
     public Guid Id { get; set; }
@@ -7,7 +9,6 @@ public class OrganizationDto
 
 public class OrganizationProjectDto
 {
-    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
 }

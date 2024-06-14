@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectService.Data;
+using ProjectService.Models.DTOs;
 
 namespace ProjectService.Controllers;
 
@@ -22,10 +23,11 @@ public class OrganizationController : ControllerBase
     public async Task<ActionResult<OrganizationDto>> GetOrganizationById(Guid id)
     {
         Organization org = await _context.Organizations
+            .Include(org => org.Projects)
             .FirstOrDefaultAsync(org => org.Id == id);
         
         OrganizationDto response = _mapper.Map<OrganizationDto>(org);
 
-        return Ok(response);
+        return Ok(org);
     }
 }
