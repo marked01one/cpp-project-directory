@@ -28,6 +28,6 @@ public class OrganizationController : ControllerBase
         
         OrganizationDto response = _mapper.Map<OrganizationDto>(org);
 
-        return Ok(org);
+        return Ok(response);
     }
 }
